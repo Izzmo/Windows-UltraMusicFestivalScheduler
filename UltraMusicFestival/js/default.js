@@ -23,60 +23,36 @@
   };
 
 
-  var Artist = WinJS.Class.define(function (name, facebook, twitter, bio, isHeadliner) {
-      this.name = name;
-      this.facebook = facebook;
-      this.twitter = twitter;
-      this.bio = bio;
-      this.isHeadliner = isHeadliner
-    },
-    {
-      toString: function () {
-        return this.name;
-      }
-    },
-    {
-    }
-  );
-
-  var Stage = WinJS.Class.define(function (name, location) {
-      this.name = name;
-      this.location = location;
-    },
-    {},
-    {}
-  );
-  
   var artists = [
-    new Artist('Afrojack', '', '', '', true),
-    new Artist('Armin Van Buuren', '', '', '', true),
-    new Artist('Avicii', '', '', '', true),
-    new Artist('Caribou', '', '', '', true),
-    new Artist('Carl Cox', '', '', '', true),
-    new Artist('Chet Faker', '', '', '', true),
-    new Artist('David Guetta', '', '', '', true),
-    new Artist('Destroid', '', '', '', true),
-    new Artist('Dubfire', '', '', '', true),
-    new Artist('Eric Prydz', '', '', '', true),
-    new Artist('Hardwell', '', '', '', true),
-    new Artist('Jamie Jones', '', '', '', true),
-    new Artist('Kaskade', '', '', '', true),
-    new Artist('Knife Party', '', '', '', true),
-    new Artist('Kygo', '', '', '', true),
-    new Artist('Loco Dice', '', '', '', true),
-    new Artist('Marco Carola', '', '', '', true),
-    new Artist('Martin Garrix', '', '', '', true),
-    new Artist('Miike Snow', '', '', '', true),
-    new Artist('Nero', '', '', '', true),
-    new Artist('Pendulum', '', '', '', true),
-    new Artist('The Prodigy', '', '', '', true),
-    new Artist('Purity Ring', '', '', '', true),
-    new Artist('Rabbit on the Moon', '', '', '', true),
-    new Artist('Seth Troxler', '', '', '', true),
-    new Artist('DJ Snake', '', '', '', true),
-    new Artist('Tiesto', '', '', '', true),
-    new Artist('Tycho', '', '', '', true),
-    new Artist('Zedd', '', '', '', true)
+    new Artist('Afrojack', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Armin Van Buuren', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Avicii', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Caribou', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Carl Cox', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Chet Faker', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('David Guetta', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Destroid', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Dubfire', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Eric Prydz', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Hardwell', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Jamie Jones', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Kaskade', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Knife Party', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Kygo', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Loco Dice', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Marco Carola', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Martin Garrix', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Miike Snow', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Nero', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Pendulum', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('The Prodigy', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Purity Ring', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Rabbit on the Moon', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Seth Troxler', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('DJ Snake', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Tiesto', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Tycho', '/images/artists/afrojack.jpg', '', '', '', true),
+    new Artist('Zedd', '/images/artists/afrojack.jpg', '', '', '', true)
   ];
 
   var stages = [
@@ -91,24 +67,39 @@
     new Stage('Oasis', null)
   ];
 
+  function loadPage(uri) {
+    var renderHost = document.querySelector(".renderingPageControls-renderedControl");  
+    while(renderHost.hasChildNodes()) renderHost.removeChild(renderHost.firstChild);
+      
+    WinJS.UI.Pages.render(uri, renderHost, { artists: new WinJS.Binding.List(artists) }).done();
+  }
+
   WinJS.Namespace.define("Umf", {
-    artists: new WinJS.Binding.List(artists),
     showSchedulePane: function () {
-      console.log('now showing schedule pane.');
+      loadPage('/pages/schedule/schedule.html');
     },
     showLineupPane: function () {
-      console.log('now showing lineup pane.');
+      loadPage('/pages/lineup/lineup.html');
     }
   });
 
   WinJS.UI.processAll().done(function () {
+    loadPage('/pages/schedule/schedule.html');
+
     var splitView = document.querySelector(".splitView").winControl;
     
-    var svCommand = document.querySelector('.nav-commands div[data-win-control="WinJS.UI.SplitViewCommand"]').winControl;
-    
+    var svCommand = document.querySelectorAll('.nav-commands div[data-win-control="WinJS.UI.SplitViewCommand"]');
+    Array.prototype.forEach.call(svCommand, function (el, ix) {
+      if(ix === 0)
+        svCommand[0].winControl.addEventListener('invoked', Umf.showSchedulePane);
+      else if(ix === 1)
+        svCommand[1].winControl.addEventListener('invoked', Umf.showLineupPane);
+    });
 
     new WinJS.UI._WinKeyboard(splitView.paneElement);
   });
+
+  
 
   app.start();
 }());

@@ -1,14 +1,14 @@
 ﻿body {
 }
 
-/* Add your CSS here */
 .content, #app {
-  height: calc(100% - 72px);
+  height: 100%;
 }
 
   #app .win-splitviewpanetoggle {
     float: left;
   }
+
 
   /* SplitView pane content style*/
   #app .header {
@@ -83,7 +83,7 @@
 }
 
 /* Template for the items in the ListViews in this sample */
-.smallListIconTextItem {
+.artist {
   width: 242px;
   height: 70px;
   padding: 5px;
@@ -93,14 +93,14 @@
   display: flex;
 }
 
-  .smallListIconTextItem img.smallListIconTextItem-Image {
+  .artist img.artist-Image {
     width: 60px;
     height: 60px;
     margin: 5px;
     margin-right: 20px;
   }
 
-  .smallListIconTextItem .smallListIconTextItem-Detail {
+  .artist .artist-Detail {
     margin: 5px;
   }
 

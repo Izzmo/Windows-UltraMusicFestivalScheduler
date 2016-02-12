@@ -11,6 +11,9 @@
 
   <!-- UltraMusicFestival references -->
   <link href="/css/default.css" rel="stylesheet" />
+
+  <script src="/js/Artist.js"></script>
+  <script src="/js/Stage.js"></script>
   <script src="/js/default.js"></script>
 </head>
 <body class="win-type-body">
@@ -29,8 +32,8 @@
         </div>
 
         <div class="nav-commands">
-          <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'My Schedule', icon: 'favorite', oninvoked: Umf.showSchedulePane }"></div>
-          <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'Lineup', icon: 'people', oninvoked: Umf.showLineupPane }"></div>
+          <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'My Schedule', icon: 'favorite' }"></div>
+          <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'Lineup', icon: 'people' }"></div>
           <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'Stages', icon: 'view'}"></div>
           <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'Map', icon: 'map'}"></div>
         </div>
@@ -38,21 +41,7 @@
       
       <!-- Content area -->
       <div class="contenttext">
-        
-        <div class="splitView__lineup">
-          <h2 class="win-h2">Lineup</h2>
-          <div id="listView"
-               class="win-selectionstylefilled"
-               data-win-control="WinJS.UI.ListView"
-               data-win-options="{
-                      itemDataSource: Umf.artists.dataSource,
-                      itemTemplate: select('.smallListIconTextTemplate'),
-                      selectionMode: 'none',
-                      tapBehavior: 'none',
-                      layout: { type: WinJS.UI.GridLayout }
-              }">
-          </div>
-        </div>
+        <div class="renderingPageControls-renderedControl"></div>
       </div>
     </div>
   </div>
