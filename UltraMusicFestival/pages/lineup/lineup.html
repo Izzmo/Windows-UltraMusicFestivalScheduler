@@ -4,14 +4,17 @@
   <meta charset="utf-8" />
   <title>Lineup</title>
   <script src="/pages/lineup/lineup.js"></script>
+  <link href="lineup.css" rel="stylesheet" />
 </head>
 <body>
   <div class="artist--template" data-win-control="WinJS.Binding.Template" style="display: none">
     <div class="artist">
       <img src="#" class="artist__image" data-win-bind="src: image" />
+      <h4 class="win-h4 artist__name" data-win-bind="textContent: name"></h4>
       <div class="artist__detail">
-        <h4 class="win-h4" data-win-bind="textContent: name"></h4>
+        
       </div>
+      <div class="artist__toggle"><span>+</span><span></span></div>
     </div>
   </div>
 
@@ -23,7 +26,8 @@
          data-win-control="WinJS.UI.ListView"
          data-win-options="{
             itemTemplate: select('.artist--template'),
-            selectionMode: 'none',
+            selectionMode: 'multi',
+            tapBehavior: 'toggleSelect',
             tapBehavior: 'none',
             layout: { type: WinJS.UI.GridLayout }
         }">

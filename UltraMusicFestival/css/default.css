@@ -82,28 +82,6 @@
   width: 100%;
 }
 
-/* Template for the items in the ListViews in this sample */
-.artist {
-  width: 242px;
-  height: 70px;
-  padding: 5px;
-  overflow: hidden;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-}
-
-  .artist img.artist-Image {
-    width: 60px;
-    height: 60px;
-    margin: 5px;
-    margin-right: 20px;
-  }
-
-  .artist .artist-Detail {
-    margin: 5px;
-  }
-
 .listLayoutTopHeaderTemplateRoot {
   font-size: larger;
   margin-left: 16px;
