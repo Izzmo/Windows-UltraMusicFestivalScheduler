@@ -42,28 +42,6 @@
   visibility: hidden;
 }
 
-/*SplitView pane style for different screen sizes*/
-#app.large .splitView {
-  width: 100%;
-}
-
-#app.large .win-splitview-content .win-splitviewpanetoggle {
-  display: none;
-}
-
-#app.medium .splitView {
-  width: 80%;
-}
-
-#app.medium .win-splitview-content .win-splitviewpanetoggle {
-  display: none;
-}
-
-#app.small .splitView {
-  width: 60%;
-}
-
-/*SplitView content style*/
 #app .win-splitview-content {
   background-color: rgb(112,112,112);
 }

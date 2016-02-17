@@ -130,6 +130,7 @@
   }
 
   WinJS.Namespace.define("Umf", {
+    screenSize: 'small',
     artists: artists,
     stages: stages,
     artistStageMap: artistStageMap,
@@ -221,6 +222,37 @@
       }
     }
   });
+  
+  function setScreenToLarge() {
+    var app = document.getElementById('app');
+    app.classList.add('large');
+    app.classList.remove('medium');
+    app.classList.remove('small');
+    Umf.screenSize = 'large';
+  }
+  function setScreenToMedium() {
+    var app = document.getElementById('app');
+    app.classList.remove('large');
+    app.classList.add('medium');
+    app.classList.remove('small');
+    Umf.screenSize = 'medium';
+  }
+  function setScreenToSmall() {
+    var app = document.getElementById('app');
+    app.classList.remove('large');
+    app.classList.remove('medium');
+    app.classList.add('small');
+    Umf.screenSize = 'small';
+  }
+  function setScreenSizeClass() {
+    var size = window.innerWidth;
+    if(size <= 500)
+      setScreenToSmall();
+    else if(size <= 1000)
+      setScreenToMedium();
+    else
+      setScreenToLarge();
+  }
 
   WinJS.UI.processAll().done(function () {
     Umf.schedule.load().then(function () {  
@@ -239,6 +271,9 @@
       else if(ix === 1)
         svCommand[1].winControl.addEventListener('invoked', Umf.showLineupPane);
     });
+
+    setScreenSizeClass();
+    window.addEventListener('resize', setScreenSizeClass);
 
     new WinJS.UI._WinKeyboard(splitView.paneElement);
   });

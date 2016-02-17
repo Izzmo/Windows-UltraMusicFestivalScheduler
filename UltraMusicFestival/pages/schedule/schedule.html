@@ -21,14 +21,21 @@
     <button class="win-button">See Lineup</button>
   </div>
 
-  <div id="listView"
-        class="win-selectionstylefilled"
-        data-win-control="WinJS.UI.ListView"
-        data-win-options="{
-          selectionMode: 'none',
-          tapBehavior: 'invokeOnly',
-          layout: { type: WinJS.UI.ListLayout }
-      }">
+  <div class="pane">
+    <div class="pane__left">
+      <div id="listView"
+            class="win-selectionstylefilled"
+            data-win-control="WinJS.UI.ListView"
+            data-win-options="{
+              selectionMode: 'none',
+              tapBehavior: 'invokeOnly',
+              layout: { type: WinJS.UI.ListLayout }
+          }">
+      </div>
+    </div>
+    <div class="pane__right">
+      <i>Calendar view coming when final time information is released!</i>
+    </div>
   </div>
 </body>
 </html>

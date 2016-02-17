@@ -32,6 +32,10 @@
     }
   }
 
+  function resizeListView() {
+    document.querySelector('#listView').style.height = (window.innerHeight - 50) + 'px';
+  }
+
   var ControlConstructor = WinJS.UI.Pages.define('/pages/lineup/lineup.html', {
     ready: function (element, options) {
       options = options || {};
@@ -43,7 +47,8 @@
       lv.winControl.itemTemplate = listViewItemTemplate;
       lv.winControl.addEventListener('iteminvoked', artistClickEvent);
 
-      element.querySelector('#listView').style.height = (window.innerHeight - 16) + 'px';
+      window.addEventListener('resize', resizeListView);
+      resizeListView();
       
       WinJS.Binding.processAll(element, this._data);
     },

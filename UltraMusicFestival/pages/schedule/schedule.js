@@ -56,6 +56,17 @@
     });
   }
 
+  var screenSave = Umf.screenSize;
+  function resizeListView() {
+    var listView = document.querySelector('#listView');
+    listView.style.height = (window.innerHeight - 50) + 'px';
+
+    if(screenSave !== Umf.screenSize) {
+      document.querySelector('#listView').winControl.forceLayout();
+      screenSave = Umf.screenSize;
+    }
+  }
+
   var ControlConstructor = WinJS.UI.Pages.define('/pages/schedule/schedule.html', {
     ready: function (element, options) {
       options = options || {};
@@ -69,7 +80,9 @@
       lv.winControl.itemTemplate = listViewItemTemplate;
       lv.winControl.addEventListener('iteminvoked', artistClickEvent);
 
-      element.querySelector('#listView').style.height = (window.innerHeight - 16) + 'px';
+      
+      window.addEventListener('resize', resizeListView);
+      resizeListView();
       
       WinJS.Binding.processAll(element, this._data);
     },
