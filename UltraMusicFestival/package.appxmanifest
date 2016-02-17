@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="54186Izzmo.UMFScheduler" Version="1.1.8.0" Publisher="CN=2A4E6126-26BF-4F9E-9DEA-20451B41942E" />
+  <Identity Name="54186Izzmo.UMFScheduler" Version="1.1.9.0" Publisher="CN=2A4E6126-26BF-4F9E-9DEA-20451B41942E" />
   <mp:PhoneIdentity PhoneProductId="063dab73-fd83-45e0-906d-42b0dfa36a2e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>UMF Scheduler</DisplayName>
