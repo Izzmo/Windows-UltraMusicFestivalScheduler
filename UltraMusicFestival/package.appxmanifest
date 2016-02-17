@@ -1,52 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Package
-  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
-  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
-  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
-
-  <Identity
-    Name="063dab73-fd83-45e0-906d-42b0dfa36a2e"
-    Version="1.0.0.0"
-    Publisher="CN=Me" />
-
-  <mp:PhoneIdentity PhoneProductId="063dab73-fd83-45e0-906d-42b0dfa36a2e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
-
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+  <Identity Name="54186Izzmo.UMFScheduler" Version="1.1.8.0" Publisher="CN=2A4E6126-26BF-4F9E-9DEA-20451B41942E" />
+  <mp:PhoneIdentity PhoneProductId="063dab73-fd83-45e0-906d-42b0dfa36a2e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>UltraMusicFestival</DisplayName>
-    <PublisherDisplayName>Me</PublisherDisplayName>
-    <Logo>images\storelogo.png</Logo>
+    <DisplayName>UMF Scheduler</DisplayName>
+    <PublisherDisplayName>Izzmo</PublisherDisplayName>
+    <Logo>images\StoreLogo.jpg</Logo>
   </Properties>
-
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
   </Dependencies>
-
   <Resources>
     <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application 
-      Id="App"
-      StartPage="default.html">
-
-      <uap:VisualElements
-        DisplayName="UltraMusicFestival"
-        Description="UltraMusicFestival"
-        BackgroundColor="transparent"
-        Square150x150Logo="images\Square150x150Logo.png"
-        Square44x44Logo="images\Square44x44Logo.png">
-
-        <uap:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png"/>
-        <uap:SplashScreen Image="images\splashscreen.png" />
-
+    <Application Id="App" StartPage="default.html">
+      <uap:VisualElements DisplayName="UMF Scheduler" Description="A artist scheduler for Ultra Music Festival." BackgroundColor="transparent" Square150x150Logo="images\Square150x150Logo.jpg" Square44x44Logo="images\Square44x44Logo.jpg">
+        <uap:DefaultTile Wide310x150Logo="images\Wide310x150Logo.jpg" Square71x71Logo="images\ultra-music-festival-icon71.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="wide310x150Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="images\SplashScreen.jpg" BackgroundColor="black" />
       </uap:VisualElements>
     </Application>
   </Applications>
-
   <Capabilities>
     <Capability Name="internetClient" />
   </Capabilities>
-
 </Package>

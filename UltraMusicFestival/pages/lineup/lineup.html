@@ -3,35 +3,30 @@
 <head>
   <meta charset="utf-8" />
   <title>Lineup</title>
-  <script src="/pages/lineup/lineup.js"></script>
+  <script src="lineup.js"></script>
   <link href="lineup.css" rel="stylesheet" />
 </head>
 <body>
-  <div class="artist--template" data-win-control="WinJS.Binding.Template" style="display: none">
+  <div class="artist--template" style="display: none">
     <div class="artist">
-      <img src="#" class="artist__image" data-win-bind="src: image" />
-      <h4 class="win-h4 artist__name" data-win-bind="textContent: name"></h4>
+      <img src="#" class="artist__image" />
+      <h4 class="win-h4 artist__name"></h4>
+      <div class="artist__toggle"><span class="favorite--add"></span><span class="favorite--remove"></span></div>
       <div class="artist__detail">
         
       </div>
-      <div class="artist__toggle"><span>+</span><span></span></div>
     </div>
   </div>
 
   <h2 class="win-h2">Lineup</h2>
-
-  <div class="splitView__lineup">
-    <div id="listView"
-         class="win-selectionstylefilled"
-         data-win-control="WinJS.UI.ListView"
-         data-win-options="{
-            itemTemplate: select('.artist--template'),
-            selectionMode: 'multi',
-            tapBehavior: 'toggleSelect',
-            tapBehavior: 'none',
-            layout: { type: WinJS.UI.GridLayout }
-        }">
-    </div>
+  <div id="listView"
+        class="win-selectionstylefilled"
+        data-win-control="WinJS.UI.ListView"
+        data-win-options="{
+          selectionMode: 'none',
+          tapBehavior: 'invokeOnly',
+          layout: { type: WinJS.UI.GridLayout }
+      }">
   </div>
 </body>
 </html>

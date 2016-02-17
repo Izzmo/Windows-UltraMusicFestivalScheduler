@@ -1,0 +1,21 @@
+﻿.artist-short {
+  width: 350px;
+  margin: 5px;
+  overflow: hidden;
+  position: relative;
+}
+.artist-short:hover {
+  cursor: pointer;
+}
+
+  .artist-short .artist-short__image {
+    width: 150px;
+    height: 82px;
+    margin-right: 5px;
+    float: left;
+  }
+
+  .artist-short .artist-short__name {
+    font-weight: bold;
+    color: white;
+  }

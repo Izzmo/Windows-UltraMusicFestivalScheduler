@@ -91,3 +91,25 @@
 #listView {
   height: 100%;
 }
+
+
+
+
+
+.favorite--add::before, .favorite--remove::before {
+  width: 40px;
+  width: 40px;
+  padding: 5px;
+  text-align: center;
+  font-size: 25px;
+}
+.favorite--add::before {
+  content: "\E734";
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.5);
+}
+.favorite--remove::before {
+  content: "\E8D9";
+  display: inline-block;
+  color: rgba(255, 255, 255, 1);
+}

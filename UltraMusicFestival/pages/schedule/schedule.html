@@ -2,10 +2,33 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Schedule</title>
-  <script src="/pages/schedule/schedule.js"></script>
+  <title>My Schedule</title>
+  <link href="schedule.css" rel="stylesheet" />
+  <script src="schedule.js"></script>
 </head>
 <body>
-  <h2 class="win-h2">Schedule</h2>
+  <div class="artist--template" style="display: none">
+    <div class="artist-short">
+      <img src="#" class="artist-short__image" />
+      <h4 class="win-h4 artist-short__name"></h4>
+      <p class="artist-short__stage"></p>
+    </div>
+  </div>
+
+  <h2 class="win-h2">My Schedule</h2>
+  <div class="no-add" style="display: none;">
+    <p>You haven't added any artists to your schedule yet.</p>
+    <button class="win-button">See Lineup</button>
+  </div>
+
+  <div id="listView"
+        class="win-selectionstylefilled"
+        data-win-control="WinJS.UI.ListView"
+        data-win-options="{
+          selectionMode: 'none',
+          tapBehavior: 'invokeOnly',
+          layout: { type: WinJS.UI.ListLayout }
+      }">
+  </div>
 </body>
 </html>

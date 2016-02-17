@@ -5,6 +5,9 @@
   overflow: hidden;
   position: relative;
 }
+.artist:hover {
+  cursor: pointer;
+}
 
   .artist .artist__image {
     width: 252px;
@@ -21,6 +24,28 @@
     font-weight: bold;
     color: white;
   }
+
+  .artist .artist__toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+    .artist .artist__toggle span.favorite--add {
+      display: inline-block;
+    }
+    .artist .artist__toggle span.favorite--remove {
+      display: none;
+    }
+    .artist.added .artist__toggle span.favorite--add {
+      display: none;
+    }
+    .artist.added .artist__toggle span.favorite--remove {
+      display: inline-block;
+    }
 
   .artist .artist__detail {
     margin: 5px;
