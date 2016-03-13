@@ -54,7 +54,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <PackageCertificateKeyFile>UltraMusicFestival_StoreKey.pfx</PackageCertificateKeyFile>
     <PackageCertificateThumbprint>D8EF21DCC06BA7A225C394308A241E7D8A30076C</PackageCertificateThumbprint>
-    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
   </PropertyGroup>
