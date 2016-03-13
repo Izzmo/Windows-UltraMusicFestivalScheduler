@@ -624,6 +624,14 @@
   }
 
   WinJS.UI.processAll().done(function () {
+    WinJS.Application.roaming.readText('version', '').done(function (data) {
+      if(!data.length || data !== '1.2') {
+        var contentDialog = document.querySelector(".win-contentdialog").winControl;
+        contentDialog.show();
+        WinJS.Application.roaming.writeText('version', '1.2');
+      }
+    });
+
     Umf.schedule.load().then(function () {  
       if(Umf.schedule.schedule.length)
         Umf.showSchedulePane();

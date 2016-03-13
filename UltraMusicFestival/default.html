@@ -19,6 +19,17 @@
 <body class="win-type-body">
 
   <div id="app">
+    <div data-win-control="WinJS.UI.ContentDialog" data-win-options="{
+            title: 'Version 1.2',
+            primaryCommandText: 'Okay'
+      }">
+      <ul>
+        <li>Phase 2 and 3 artists have been added! (All 216)</li>
+        <li>Stage information has been added for all artists.</li>
+        <li>You can favorite your artists right now and see them in your list.</li>
+        <li>Coming soon in the next day or so: calendar scheduler and UI improvements.</li>
+      </ul>
+    </div>
 
     <div class="splitView" data-win-control="WinJS.UI.SplitView">
 
@@ -38,7 +49,7 @@
           <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'Map', icon: 'map'}"></div>-->
         </div>
       </div>
-      
+
       <!-- Content area -->
       <div class="contenttext">
         <div class="renderingPageControls-renderedControl"></div>
