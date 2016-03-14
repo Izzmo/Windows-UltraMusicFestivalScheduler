@@ -1,6 +1,25 @@
 ﻿(function () {
   'use strict';
 
+  function formatTime(time) {
+    return time.substr(0, time.length == 3 ? 1 : 2) + ':' + time.substr(-2, 2);
+  }
+
+  function formatDayFromDayNumber(dayNum) {
+    switch(dayNum) {
+      case 3:
+        return 'Sunday';
+        break;
+
+      case 2:
+        return 'Saturday';
+        break;
+
+      default:
+        return 'Friday';
+    }
+  }
+
   function listViewItemTemplate(itemPromise) {
     return itemPromise.then(function (item) {
       var template = document.querySelector('.artist--template');
@@ -16,6 +35,11 @@
       var stageName = 'TBD';
       var stage = Umf.getArtistStage(item.data.id);
       if(stage !== null) stageName = stage.name;
+
+      var time = 'TBD';
+      var timeNode = artist.querySelector('.artist-short__time');
+      var timeMap = Umf.getArtistStageMap(item.data.id);
+      timeNode.innerHTML = formatDayFromDayNumber(timeMap.day) + ' at ' + formatTime(timeMap.time) + 'pm';
 
       artist.querySelector('.artist-short__stage').innerHTML = stageName;
 
@@ -67,6 +91,27 @@
     }
   }
 
+  function addArtistToTable(element, stageId, artist, day, duration) {
+    var table = element.querySelector('table.schedule');
+    var tr = table.tBodies[0].querySelectorAll('tr')[stageId - 1];
+    var colspan = 1;
+
+    var td = document.createElement('td');
+    td.classList.add('selected');
+    td.innerHTML = artist;
+    td.colSpan = duration / 15;
+    tr.appendChild(td);
+
+    //for(var l = 0; l < 124; l++) {
+    //}
+  }
+
+  function setupGrid(element) {
+    Umf.artistStageMap.forEach(function (mp) {
+      addArtistToTable(element, mp.stageId, Umf.getArtist(mp.artistId).name, mp.day, mp.duration);
+    });        
+  }
+
   var ControlConstructor = WinJS.UI.Pages.define('/pages/schedule/schedule.html', {
     ready: function (element, options) {
       options = options || {};
@@ -80,6 +125,7 @@
       lv.winControl.itemTemplate = listViewItemTemplate;
       lv.winControl.addEventListener('iteminvoked', artistClickEvent);
 
+      setupGrid(element);
       
       window.addEventListener('resize', resizeListView);
       resizeListView();

@@ -1,6 +1,6 @@
 ﻿.artist-short {
-  width: 350px;
-  height: 82px;
+  width: 300px;
+  height: 75px;
   margin: 5px;
   overflow: hidden;
   position: relative;
@@ -10,10 +10,14 @@
 }
 
   .artist-short .artist-short__image {
-    width: 150px;
-    height: 82px;
+    width: 137px;
+    height: 75px;
     margin-right: 5px;
     float: left;
+  }
+
+  .artist-short p {
+    margin: 0;
   }
 
   .artist-short .artist-short__name {
@@ -22,6 +26,9 @@
   }
   .artist-short .artist-short__stage {
     
+  }
+  .artist-short .artist-short__time {
+
   }
 
 #app.small .artist-short {
@@ -48,7 +55,7 @@
 
   .pane__left, .pane__right {
     display: inline-block;
-    overflow: hidden;
+    overflow: auto;
     vertical-align: top;
   }
 
@@ -61,7 +68,38 @@
 
   .pane__right {
     width: calc(100% - 400px);
+    position: relative;
   }
   #app.small .pane__right {
     width: calc(100% - 250px);
+  }
+
+  .table-sticky {
+    position: absolute;
+    left: 0;
+    background-color: #808080;
+    display: none;
+  }
+
+  table.schedule {
+    width: 15000px;
+    border-collapse: collapse;
+  }
+
+  .schedule td, .schedule th {
+    text-align: left;
+    width: 125px;
+  }
+
+  .schedule th {
+    padding: 10px;
+    border: 1px solid #ffffff;
+  }
+  
+  .schedule td {
+    background-color: #666;
+  }
+  .schedule td.selected {
+    background-color: #666;
+    border: 1px solid #fff;
   }
