@@ -91,6 +91,16 @@
     }
   }
 
+  function addBlankToTable(element, stageId) {
+    var table = element.querySelector('table.schedule');
+    var tr = table.tBodies[0].querySelectorAll('tr')[stageId - 1];
+    var colspan = 1;
+
+    var td = document.createElement('td');
+    td.innerHTML = '';
+    tr.appendChild(td);
+  }
+
   function addArtistToTable(element, stageId, artist, day, duration) {
     var table = element.querySelector('table.schedule');
     var tr = table.tBodies[0].querySelectorAll('tr')[stageId - 1];
@@ -107,9 +117,65 @@
   }
 
   function setupGrid(element) {
-    Umf.artistStageMap.forEach(function (mp) {
-      addArtistToTable(element, mp.stageId, Umf.getArtist(mp.artistId).name, mp.day, mp.duration);
-    });        
+    var time = 0;
+    var hour = 4;
+    var day = 1;
+    var skipGrid = [];
+
+    // each 15 mins
+    for(var i = 0; i < 124; i++) {
+      if(time > 60) {
+        time = 0;
+        hour++;
+      }
+
+      if(hour == 13) hour = 1;
+
+      if(i == 32) {
+        day = 2;
+        hour = 12;
+        time = 0;
+      }
+      else if(i == 80) {
+        day = 3;
+        hour = 12;
+        time = 0;
+      }
+
+      var timestamp = hour.toString() + (time == 0 ? '00' : time);
+      
+      Umf.schedule.schedule.forEach(function (artistId) {
+        var map = Umf.getArtistStageMap(artistId);
+        if(map !== null && map.day == day && map.time == timestamp) {
+          addArtistToTable(element, map.stageId, Umf.getArtist(artistId).name, map.day, map.duration);
+          
+          skipGrid.push({ stageId: map.stageId, d: map.duration / 15 });
+        }
+      }); 
+
+      // check to see any queued for time
+      for(var s = 0; s < Umf.stages.length; s++) {
+        var sgFound = false;
+        var sgInt = -1;
+        var sgIntRemove = false;
+        skipGrid.forEach(function (sg) {
+          sgInt++;
+          if(sg.stageId == s + 1) {
+            sgFound = true;
+            sg.d -= 1;
+            if(sg.d <= 0)
+              sgIntRemove = true; 
+          }
+        });
+        if(sgIntRemove)
+          skipGrid.splice(sgInt, 1);
+
+        if(!sgFound)
+          addBlankToTable(element, s + 1);
+      }
+
+      time += 15;
+    }       
   }
 
   var ControlConstructor = WinJS.UI.Pages.define('/pages/schedule/schedule.html', {
