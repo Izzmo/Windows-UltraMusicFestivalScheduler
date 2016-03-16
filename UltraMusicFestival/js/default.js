@@ -641,7 +641,7 @@
 
   WinJS.UI.processAll().done(function () {
     WinJS.Application.roaming.readText('version', '').done(function (data) {
-      if(!data.length || data !== '1.2') {
+      if(!data.length || data !== '1.3') {
         var contentDialog = document.querySelector(".win-contentdialog").winControl;
         contentDialog.show();
         WinJS.Application.roaming.writeText('version', '1.2');

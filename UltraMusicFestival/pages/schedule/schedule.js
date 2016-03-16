@@ -178,6 +178,21 @@
     }       
   }
 
+  function artistSort(a, b) {
+    var aa = Umf.getArtistStageMap(a.id);
+    var ab = Umf.getArtistStageMap(b.id);
+
+    if(aa.day < ab.day) return -1;
+    else if(aa.day > ab.day) return 1;
+    else if(aa.day == ab.day) {
+      if(aa.time == '1200') return -1;
+      if(ab.time == '1200') return -1;
+      return parseInt(aa.time) - parseInt(ab.time);
+    }
+
+    return 0;
+  };
+
   var ControlConstructor = WinJS.UI.Pages.define('/pages/schedule/schedule.html', {
     ready: function (element, options) {
       options = options || {};
@@ -186,12 +201,14 @@
       
       if(!artists.length) showNoAdd();
 
+      artists.sort(artistSort);
+
       var lv = element.querySelector('#listView');
       lv.winControl.itemDataSource = artists.dataSource;
       lv.winControl.itemTemplate = listViewItemTemplate;
       lv.winControl.addEventListener('iteminvoked', artistClickEvent);
 
-      setupGrid(element);
+      //setupGrid(element);
       
       window.addEventListener('resize', resizeListView);
       resizeListView();
