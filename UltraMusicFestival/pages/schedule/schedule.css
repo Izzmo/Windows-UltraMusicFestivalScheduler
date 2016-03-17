@@ -33,19 +33,18 @@
 
 #app.small .artist-short {
   width: 200px;
-    height: 41px;
+  height: 55px;
 }
   #app.small .artist-short__image {
-    width: 75px;
-    height: 41px;
+    width: 100px;
+    height: 55px;
   }
   
   #app.small .artist-short__name {
     font-size: 14px;
   }
-  #app.small .artist-short__stage {
+  #app.small .artist-short__stage, #app.small .artist-short__time {
     font-size: 12px;
-    margin-top: 5px;
   }
 
 
