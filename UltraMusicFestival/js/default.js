@@ -541,6 +541,9 @@
     showLineupPane: function () {
       loadPage('/pages/lineup/lineup.html');
     },
+    showSitemapPane: function () {
+      loadPage('/pages/sitemap/sitemap.html');
+    },
     schedule: {
       schedule: [],
       add: function (artistId) {
@@ -641,10 +644,10 @@
 
   WinJS.UI.processAll().done(function () {
     WinJS.Application.roaming.readText('version', '').done(function (data) {
-      if(!data.length || data !== '1.3') {
+      if(!data.length || data !== '1.4.0') {
         var contentDialog = document.querySelector(".win-contentdialog").winControl;
         contentDialog.show();
-        WinJS.Application.roaming.writeText('version', '1.2');
+        WinJS.Application.roaming.writeText('version', '1.4.0');
       }
     });
 
@@ -663,6 +666,8 @@
         svCommand[0].winControl.addEventListener('invoked', Umf.showSchedulePane);
       else if(ix === 1)
         svCommand[1].winControl.addEventListener('invoked', Umf.showLineupPane);
+      else if(ix === 2)
+        svCommand[2].winControl.addEventListener('invoked', Umf.showSitemapPane);
     });
 
     setScreenSizeClass();

@@ -1,0 +1,105 @@
+﻿.artist-short {
+  width: 300px;
+  height: 75px;
+  margin: 5px;
+  overflow: hidden;
+  position: relative;
+}
+.artist-short:hover {
+  cursor: pointer;
+}
+
+  .artist-short .artist-short__image {
+    width: 137px;
+    height: 75px;
+    margin-right: 5px;
+    float: left;
+  }
+
+  .artist-short p {
+    margin: 0;
+  }
+
+  .artist-short .artist-short__name {
+    font-weight: bold;
+    color: white;
+  }
+  .artist-short .artist-short__stage {
+    
+  }
+  .artist-short .artist-short__time {
+
+  }
+
+#app.small .artist-short {
+  width: 200px;
+    height: 41px;
+}
+  #app.small .artist-short__image {
+    width: 75px;
+    height: 41px;
+  }
+  
+  #app.small .artist-short__name {
+    font-size: 14px;
+  }
+  #app.small .artist-short__stage {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+
+.pane {
+  width: 100%;
+}
+
+  .pane__left, .pane__right {
+    display: inline-block;
+    overflow: auto;
+    vertical-align: top;
+  }
+
+  .pane__left {
+    width: 350px;
+  }
+  #app.small .pane__left {
+    width: 200px;
+  }
+
+  .pane__right {
+    width: calc(100% - 400px);
+    position: relative;
+  }
+  #app.small .pane__right {
+    width: calc(100% - 250px);
+  }
+
+  .table-sticky {
+    position: absolute;
+    left: 0;
+    background-color: #808080;
+    display: none;
+  }
+
+  table.schedule {
+    width: 15000px;
+    border-collapse: collapse;
+  }
+
+  .schedule td, .schedule th {
+    text-align: left;
+    width: 125px;
+  }
+
+  .schedule th {
+    padding: 10px;
+    border: 1px solid #ffffff;
+  }
+  
+  .schedule td {
+    background-color: #666;
+  }
+  .schedule td.selected {
+    background-color: #666;
+    border: 1px solid #fff;
+  }

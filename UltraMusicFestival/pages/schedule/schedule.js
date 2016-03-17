@@ -83,6 +83,7 @@
   var screenSave = Umf.screenSize;
   function resizeListView() {
     var listView = document.querySelector('#listView');
+    if(listView === null) return;
     listView.style.height = (window.innerHeight - 50) + 'px';
 
     if(screenSave !== Umf.screenSize) {

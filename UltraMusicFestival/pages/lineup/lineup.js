@@ -33,7 +33,9 @@
   }
 
   function resizeListView() {
-    document.querySelector('#listView').style.height = (window.innerHeight - 50) + 'px';
+    var listView = document.querySelector('#listView');
+    if(listView === null) return;
+    listView.style.height = (window.innerHeight - 50) + 'px';
   }
 
   var ControlConstructor = WinJS.UI.Pages.define('/pages/lineup/lineup.html', {

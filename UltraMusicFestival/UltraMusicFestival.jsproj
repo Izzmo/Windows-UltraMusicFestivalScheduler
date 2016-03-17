@@ -226,6 +226,7 @@
     <Content Include="images\artists\zedd.jpg" />
     <Content Include="images\LockScreenLogo.scale-200.png" />
     <Content Include="images\miami-og-3.jpg" />
+    <Content Include="images\miami-site-map.jpg" />
     <Content Include="images\SplashScreen.scale-100.jpg" />
     <Content Include="images\SplashScreen.scale-200.jpg" />
     <Content Include="images\Square150x150Logo.jpg" />
@@ -243,6 +244,9 @@
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="packages.config" />
     <Content Include="pages\lineup\lineup.css" />
+    <Content Include="pages\sitemap\sitemap.css" />
+    <Content Include="pages\sitemap\sitemap.html" />
+    <Content Include="pages\sitemap\sitemap.js" />
     <Content Include="pages\schedule\schedule.css" />
     <Content Include="pages\schedule\schedule.html" />
     <Content Include="pages\schedule\schedule.js" />
