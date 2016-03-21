@@ -253,6 +253,7 @@
     <Content Include="pages\lineup\lineup.html" />
     <Content Include="pages\lineup\lineup.js" />
     <None Include="UltraMusicFestival_StoreKey.pfx" />
+    <Content Include="readme.md" />
     <Content Include="WinJS\css\ui-dark.css" />
     <Content Include="WinJS\css\ui-dark.min.css" />
     <Content Include="WinJS\css\ui-light.css" />
