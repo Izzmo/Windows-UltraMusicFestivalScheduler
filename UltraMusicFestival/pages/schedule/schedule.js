@@ -39,7 +39,10 @@
       var time = 'TBD';
       var timeNode = artist.querySelector('.artist-short__time');
       var timeMap = Umf.getArtistStageMap(item.data.id);
-      timeNode.innerHTML = formatDayFromDayNumber(timeMap.day) + ' at ' + formatTime(timeMap.time) + 'pm';
+      if (null != timeMap)
+        timeNode.innerHTML = formatDayFromDayNumber(timeMap.day) + ' at ' + formatTime(timeMap.time) + 'pm';
+      else
+        timeNode.innerHTML = 'TBD';
 
       artist.querySelector('.artist-short__stage').innerHTML = stageName;
 
@@ -183,9 +186,11 @@
     var aa = Umf.getArtistStageMap(a.id);
     var ab = Umf.getArtistStageMap(b.id);
 
-    if(aa.day < ab.day) return -1;
-    else if(aa.day > ab.day) return 1;
-    else if(aa.day == ab.day) {
+    if (aa === null) return -1;
+    else if (ab == null) return 1;
+    else if (aa.day < ab.day) return -1;
+    else if (aa.day > ab.day) return 1;
+    else if (aa.day == ab.day) {
       if(aa.time == '1200') return -1;
       if(ab.time == '1200') return -1;
       return parseInt(aa.time) - parseInt(ab.time);
