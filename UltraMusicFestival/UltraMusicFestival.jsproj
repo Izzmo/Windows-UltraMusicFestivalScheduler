@@ -52,11 +52,11 @@
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>$(VersionNumberMajor).$(VersionNumberMinor)</MinimumVisualStudioVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageCertificateKeyFile>UltraMusicFestival_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>B49A6CD90B9F79FC857C83AAFAE1092C22596A01</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>CD89377FE158440036C203B40002587CE4118846</PackageCertificateThumbprint>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
+    <PackageCertificateKeyFile>UltraMusicFestival_StoreKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="package.appxmanifest">
